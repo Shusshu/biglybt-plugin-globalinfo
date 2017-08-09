@@ -1,6 +1,6 @@
-azureus-plug-globalinfo
+biglybt-plugin-globalinfo
 =======================
 
-Azureus Plugin - Global Information
+BiglyBT Plugin - Global Information
 
 http://azureus.sourceforge.net/plugin_details.php?plugin=GlobalInformationStatusEntry
