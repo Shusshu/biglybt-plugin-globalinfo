@@ -1,30 +1,30 @@
 package org.shu.plug.globalinformation;
 
-import org.gudy.azureus2.plugins.PluginException;
-import org.gudy.azureus2.plugins.PluginInterface;
-import org.gudy.azureus2.plugins.UnloadablePlugin;
-import org.gudy.azureus2.plugins.download.Download;
-import org.gudy.azureus2.plugins.ui.UIInstance;
-import org.gudy.azureus2.plugins.ui.UIManagerListener;
-import org.gudy.azureus2.plugins.ui.UIMessage;
-import org.gudy.azureus2.plugins.ui.config.ActionParameter;
-import org.gudy.azureus2.plugins.ui.config.Parameter;
-import org.gudy.azureus2.plugins.ui.config.ParameterListener;
-import org.gudy.azureus2.plugins.ui.config.StringParameter;
-import org.gudy.azureus2.plugins.ui.menus.MenuItem;
-import org.gudy.azureus2.plugins.ui.menus.MenuItemFillListener;
-import org.gudy.azureus2.plugins.ui.menus.MenuItemListener;
-import org.gudy.azureus2.plugins.ui.menus.MenuManager;
-import org.gudy.azureus2.plugins.ui.model.BasicPluginConfigModel;
-import org.gudy.azureus2.plugins.ui.tables.TableContextMenuItem;
-import org.gudy.azureus2.plugins.ui.tables.TableManager;
-import org.gudy.azureus2.plugins.ui.tables.TableRow;
-import org.gudy.azureus2.plugins.utils.UTTimer;
-import org.gudy.azureus2.plugins.utils.UTTimerEvent;
-import org.gudy.azureus2.plugins.utils.UTTimerEventPerformer;
-import org.gudy.azureus2.ui.swt.plugins.UISWTInstance;
-import org.gudy.azureus2.ui.swt.plugins.UISWTStatusEntry;
-import org.gudy.azureus2.ui.swt.plugins.UISWTStatusEntryListener;
+import com.biglybt.pif.PluginException;
+import com.biglybt.pif.PluginInterface;
+import com.biglybt.pif.UnloadablePlugin;
+import com.biglybt.pif.download.Download;
+import com.biglybt.pif.ui.UIInstance;
+import com.biglybt.pif.ui.UIManagerListener;
+import com.biglybt.pif.ui.UIMessage;
+import com.biglybt.pif.ui.config.ActionParameter;
+import com.biglybt.pif.ui.config.Parameter;
+import com.biglybt.pif.ui.config.ParameterListener;
+import com.biglybt.pif.ui.config.StringParameter;
+import com.biglybt.pif.ui.menus.MenuItem;
+import com.biglybt.pif.ui.menus.MenuItemFillListener;
+import com.biglybt.pif.ui.menus.MenuItemListener;
+import com.biglybt.pif.ui.menus.MenuManager;
+import com.biglybt.pif.ui.model.BasicPluginConfigModel;
+import com.biglybt.pif.ui.tables.TableContextMenuItem;
+import com.biglybt.pif.ui.tables.TableManager;
+import com.biglybt.pif.ui.tables.TableRow;
+import com.biglybt.pif.utils.UTTimer;
+import com.biglybt.pif.utils.UTTimerEvent;
+import com.biglybt.pif.utils.UTTimerEventPerformer;
+import com.biglybt.ui.swt.pif.UISWTInstance;
+import com.biglybt.ui.swt.pif.UISWTStatusEntry;
+import com.biglybt.ui.swt.pif.UISWTStatusEntryListener;
 
 public class Main implements UnloadablePlugin {
 
@@ -54,7 +54,8 @@ public class Main implements UnloadablePlugin {
 		ConfigPanel();
 		
         this.pluginInterface.getUIManager().addUIListener(new UIManagerListener() {
-            
+
+			@Override
 			public void UIAttached(UIInstance instance) {
             	
                 if (instance instanceof UISWTInstance) {
@@ -67,6 +68,8 @@ public class Main implements UnloadablePlugin {
                     
                 }
             }
+
+			@Override
             public void UIDetached(UIInstance instance) {
             	if (instance instanceof UISWTInstance){
                     swtInstance = null;
@@ -89,6 +92,7 @@ public class Main implements UnloadablePlugin {
 		final ActionParameter apDefault = model.addActionParameter2(null, CFG_DEFAULT);
 		
 		apDefault.addListener(new ParameterListener() {
+			@Override
 			public void parameterChanged(Parameter param) {
 				
 				try {
@@ -105,6 +109,7 @@ public class Main implements UnloadablePlugin {
 		final ActionParameter apSave = model.addActionParameter2(null, CFG_SAVE);
 		
 		apSave.addListener(new ParameterListener() {
+			@Override
 			public void parameterChanged(Parameter param) {
 				
 				try {
@@ -129,6 +134,7 @@ public class Main implements UnloadablePlugin {
 			
 			menu.addListener(new MenuItemListener(){
 
+				@Override
 				public void selected(MenuItem menu, Object target) {
 					UIMessage uiMessage = swtInstance.createMessage();
 					uiMessage.setMessage("shu.plugin.globalinfo.popup.credit.text");
@@ -154,7 +160,8 @@ public class Main implements UnloadablePlugin {
 		this.uiSWTStatusEntry = swtInstance.createStatusEntry();
 		
 		UISWTStatusEntryListener uiSWTStatusEntryListener = new UISWTStatusEntryListener(){
-			
+
+			@Override
 			public void entryClicked(UISWTStatusEntry uiSWTStatusEntry) {
 				updateStatusBarItem();
 			}
@@ -169,6 +176,7 @@ public class Main implements UnloadablePlugin {
 		this.timer = this.pluginInterface.getUtilities().createTimer("TotalRemainingRefresh", true);
 		
 		this.timer.addPeriodicEvent(5000, new UTTimerEventPerformer(){
+			@Override
 			public void perform(UTTimerEvent event){
 				updateStatusBarItem();
 			}
@@ -177,7 +185,8 @@ public class Main implements UnloadablePlugin {
 	
 	private void addMyTorrentsMenu()  {
 		MenuItemFillListener remainingsFillListener = new MenuItemFillListener(){
-			
+
+			@Override
 			public void menuWillBeShown(MenuItem menu, Object data) {
 				TableRow[] rows = ((TableRow[])data);
 		    	Download[] downloads = new Download[rows.length];
@@ -195,7 +204,8 @@ public class Main implements UnloadablePlugin {
 		};
 		
 		MenuItemFillListener peersFillListener = new MenuItemFillListener(){
-			
+
+			@Override
 			public void menuWillBeShown(MenuItem menu, Object data) {
 				TableRow[] rows = ((TableRow[])data);
 		    	Download[] downloads = new Download[rows.length];

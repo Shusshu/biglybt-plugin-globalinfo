@@ -1,8 +1,8 @@
 package org.shu.plug.globalinformation;
 
-import org.gudy.azureus2.plugins.PluginInterface;
-import org.gudy.azureus2.plugins.utils.Formatters;
-import org.gudy.azureus2.plugins.utils.LocaleUtilities;
+import com.biglybt.pif.PluginInterface;
+import com.biglybt.pif.utils.Formatters;
+import com.biglybt.pif.utils.LocaleUtilities;
 
 public class GlobalInformation {
 	

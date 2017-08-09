@@ -4,16 +4,26 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.shusshu</groupId>
-	<artifactId>azureus-plug-globalinfo</artifactId>
-	<version>1.7.0</version>
-	<name>Azureus Plugin - Global Information</name>
+	<artifactId>biglybt-plug-globalinfo</artifactId>
+	<version>2.0.0</version>
+	<name>BiglyBT Plugin - Global Information</name>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.6</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>maven-eclipse-repo</id>
+			<url>http://maven-eclipse.github.io/maven</url>
+		</repository>
+		<repository>
+			<id>maven-eclipse-repo-dev</id>
+			<url>http://maven-eclipse.github.io/dev-releases/maven</url>
+		</repository>
+	</repositories>
 	
 	<dependencies>
 		<dependency>
@@ -21,14 +31,19 @@
 			<artifactId>plugin-api</artifactId>
 			<version>4604</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/Vuze_4604_pluginapi.jar</systemPath> <!-- Vuze_4812_pluginapi -->
+			<systemPath>${basedir}/libs/BiglyBT.jar</systemPath> <!-- Vuze_4812_pluginapi -->
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse</groupId>
-			<artifactId>swt</artifactId>
-			<version>4604</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/libs/swt.jar</systemPath>
+			<groupId>org.eclipse.swt</groupId>
+			<artifactId>org.eclipse.swt.win32.win32.x86</artifactId>
+			<version>4.6.1</version> <!-- 4.7M3 -->
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.swt</groupId>
+			<artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
+			<version>4.6.1</version> <!-- 4.7M3 -->
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

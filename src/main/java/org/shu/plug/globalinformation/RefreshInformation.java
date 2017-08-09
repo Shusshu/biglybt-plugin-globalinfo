@@ -1,10 +1,10 @@
 package org.shu.plug.globalinformation;
 
-import org.gudy.azureus2.plugins.PluginInterface;
-import org.gudy.azureus2.plugins.download.Download;
-import org.gudy.azureus2.plugins.peers.PeerManager;
-import org.gudy.azureus2.plugins.peers.PeerManagerStats;
-import org.gudy.azureus2.plugins.utils.LocaleUtilities;
+import com.biglybt.pif.PluginInterface;
+import com.biglybt.pif.download.Download;
+import com.biglybt.pif.peers.PeerManager;
+import com.biglybt.pif.peers.PeerManagerStats;
+import com.biglybt.pif.utils.LocaleUtilities;
 
 public class RefreshInformation {
 	
