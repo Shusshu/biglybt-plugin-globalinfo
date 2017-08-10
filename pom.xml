@@ -27,11 +27,11 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>com.vuze.api</groupId>
+			<groupId>com.biglybt.api</groupId>
 			<artifactId>plugin-api</artifactId>
-			<version>4604</version>
+			<version>1.0.0.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/BiglyBT.jar</systemPath> <!-- Vuze_4812_pluginapi -->
+			<systemPath>${basedir}/libs/BiglyBT-1.0.0-pluginapi.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.swt</groupId>
